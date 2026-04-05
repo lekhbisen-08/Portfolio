@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      background: #0a0a0a;
+      color: white;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: #111;
+      padding: 70px 20px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #222;
+      position: fixed;
+      height: 100vh;
+      left: 0;
+      top: 0;
+    }
+
+    .profile {
+      text-align: center;
+      margin-bottom: 100px;
+    }
+
+    .profile img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 40px;
+    }
+
+    .profile h2 {
+      font-size: 30px;
+    }
+
+    .profile p {
+      color: cyan;
+      font-size: 14px;
+    }
+
+    .menu a {
+      display: block;
+      padding: 8px;
+      margin: 25px 0;
+      color: #ccc;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      background: #1a1a1a;
+      color: cyan;
+    }
+
+    .footer {
+      margin-top: auto;
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 260px;
+      padding: 40px;
+      width: 100%;
+    }
+
+    h1 {
+       text-align: center;
+  margin-bottom: 50px;
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+
+  /* Gradient text */
+  background: linear-gradient(90deg, cyan, #00f7ff, #00c3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Glow effect */
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4),
+               0 0 20px rgba(0, 255, 255, 0.2);
+
+  position: relative;
+    }
+
+    /* Underline glow effect */
+h1::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  margin: 12px auto 0;
+  background: cyan;
+  box-shadow: 0 0 10px cyan;
+  border-radius: 5px;
+}
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .project-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #111;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0,255,255,0.1);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 0 25px rgba(0,255,255,0.3);
+      transform: translateY(-5px);
+    }
+
+    /* Window bar */
+    .window-bar {
+      display: flex;
+      gap: 6px;
+      padding: 10px;
+      background: #1a1a1a;
+    }
+
+    .window-bar span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .window-bar span:nth-child(1) { background: red; }
+    .window-bar span:nth-child(2) { background: yellow; }
+    .window-bar span:nth-child(3) { background: green; }
+
+    /* Slider */
+    .slider {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .slides {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.5s ease;
+    }
+
+    .slides img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Controls */
+    .controls {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .controls button {
+      padding: 5px 10px;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid cyan;
+      color: cyan;
+      cursor: pointer;
+    }
+
+    /* Overlay */
+    .project-overlay {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .project-overlay h3 {
+      color: cyan;
+      margin-bottom: 10px;
+    }
+
+    .project-overlay p {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .project-overlay a {
+      margin: 5px;
+      padding: 6px 12px;
+      border: 1px solid cyan;
+      color: cyan;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .project-overlay a:hover {
+      background: cyan;
+      color: black;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        overflow-x: auto;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      .menu {
+        display: flex;
+      }
+
+      .menu a {
+        margin: 0 5px;
+      }
+    }
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  color: #666;
+}
+
+/* Icons row */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* Icon style */
+.social-icons a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #222;
+  border-radius: 50%;
+  color: #888;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* Hover effect */
+.social-icons a:hover {
+  color: cyan;
+  border-color: cyan;
+  background: rgba(0,255,255,0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px cyan;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="profile">
+      <img src="Profile photo.jpeg" alt="profile">
+      <h2>Lekh Bisen</h2>
+      <p>Data Science Applicant</p>
+    </div>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="experience.html">Experience</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer">
+  <div class="social-icons">
+    <a href="https://instagram.com" target="_blank">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="https://linkedin.com" target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="https://kaggle.com" target="_blank">
+      <i class="fa-brands fa-kaggle"></i>
+    </a>
+    <a href="https://leetcode.com" target="_blank">
+      <i class="fa-solid fa-code"></i>
+    </a>
+  </div>
+
+  <p>© 2026 Lekh</p>
+</div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h1>Portfolio Showcase</h1>
+
+    <div class="projects">
+
+      <!-- Project Card 1 -->
+      <div class="project-card">
+        <div class="window-bar">
+          <span></span><span></span><span></span>
+        </div>
+
+        <div class="slider">
+          <div class="slides" id="slides1">
+            <img src="bizlytics/1.png">
+            <img src="bizlytics/2.png">
+            <img src="bizlytics/3.png">
+            <img src="bizlytics/4.png">
+            <img src="bizlytics/5.png">
+            <img src="bizlytics/6.png">
+            <img src="bizlytics/7.png">
+          </div>
+
+          <div class="controls">
+            <button onclick="moveSlide('slides1', -1)">↑</button>
+            <button onclick="moveSlide('slides1', 1)">↓</button>
+          </div>
+        </div>
+
+        <div class="project-overlay">
+          <h3>Bizlytics</h3>
+          <p>AI-powered sales analytics platform</p>
+          
+          <a href="#">GitHub</a>
+        </div>
+      </div>
+
+
+     <!-- Project Card 2 -->
+      <div class="project-card">
+        <div class="window-bar">
+          <span></span><span></span><span></span>
+        </div>
+
+        <div class="slider">
+          <div class="slides" id="slides2">
+            <img src="profit pulse/1.png">
+            <img src="profit pulse/2.png">
+            <img src="profit pulse/3.png">
+            <img src="profit pulse/4.png">
+            <img src="profit pulse/5.png">
+            <img src="profit pulse/6.png">
+            <img src="profit pulse/7.png">
+            <img src="profit pulse/8.png">
+            <img src="profit pulse/9.png">
+            <img src="profit pulse/10.png">
+            <img src="profit pulse/11.png">
+          </div>
+
+          <div class="controls">
+            <button onclick="moveSlide('slides2', -1)">↑</button>
+            <button onclick="moveSlide('slides2', 1)">↓</button>
+          </div>
+        </div>
+
+        <div class="project-overlay">
+          <h3>Profit Pulse</h3>
+          <p>Stock Market Analysis for Bigeners</p>
+          
+          <a href="#">GitHub</a>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Script -->
+  <script>
+    let indexMap = {};
+
+    function moveSlide(id, direction) {
+      const slides = document.getElementById(id);
+      const total = slides.children.length;
+
+      if (!(id in indexMap)) indexMap[id] = 0;
+
+      indexMap[id] += direction;
+
+      if (indexMap[id] < 0) indexMap[id] = total - 1;
+      if (indexMap[id] >= total) indexMap[id] = 0;
+
+      const currentImage = slides.children[indexMap[id]];
+
+      slides.style.transform = `translateY(-${currentImage.offsetTop}px)`;
+      slides.parentElement.style.height = currentImage.offsetHeight + "px";
+    }
+
+    window.onload = function () {
+  const allSlides = document.querySelectorAll(".slides");
+
+  allSlides.forEach(slides => {
+    const firstImage = slides.children[0];
+    slides.parentElement.style.height = firstImage.offsetHeight + "px";
+  });
+};
+
+    
+  </script>
+
+</body>
+</html>

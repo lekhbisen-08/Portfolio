@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certifications</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  background: #0a0a0a;
+  color: white;
+}
+
+/* Sidebar (copied) */
+.sidebar {
+  width: 260px;
+  background: #111;
+  padding: 70px 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #222;
+  height: 100vh;
+  position: fixed;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 40px;
+}
+
+.profile h2 {
+  font-size: 30px;
+}
+
+.profile p {
+  color: cyan;
+  font-size: 14px;
+}
+
+.menu a {
+  display: block;
+  padding: 8px;
+  margin: 25px 0;
+  color: #ccc;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background: #1a1a1a;
+  color: cyan;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  color: #666;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #222;
+  border-radius: 50%;
+  color: #888;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: cyan;
+  border-color: cyan;
+  background: rgba(0,255,255,0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px cyan;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 260px;
+  padding: 40px;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 36px;
+  background: linear-gradient(90deg, cyan, #00f7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid - 2 cards per row */
+.certifications {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* Card */
+.cert-card {
+  background: rgba(17,17,17,0.8);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,255,255,0.1);
+  transition: 0.4s;
+}
+
+.cert-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0,255,255,0.2);
+}
+
+.cert-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.cert-card h3 {
+  text-align: center;
+  color: cyan;
+  margin-bottom: 10px;
+}
+
+.cert-card p {
+  text-align: center;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.cert-card a {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: cyan;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+  .certifications {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <div class="profile">
+    <img src="Profile photo.jpeg">
+    <h2>Lekh Bisen</h2>
+    <p>Data Science Applicant</p>
+  </div>
+
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="experience.html">Experience</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="footer">
+    <div class="social-icons">
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#"><i class="fa-brands fa-kaggle"></i></a>
+      <a href="#"><i class="fa-solid fa-code"></i></a>
+    </div>
+    <p>© 2026 Lekh</p>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main-content">
+  <h1>Certifications</h1>
+
+  <div class="certifications">
+
+    <!-- Card 1 -->
+    <div class="cert-card">
+      <img src="certificatte/power bi.png">
+      <h3>Power BI Certification</h3>
+      <p>Issued by Office Master </p>
+      <a href="#">View Certificate</a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="cert-card">
+      <img src="certificatte/streamlit.png">
+      <h3>Streamlit Certification</h3>
+      <p>Issued by Udemy Platform</p>
+      <a href="#">View Certificate</a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="cert-card">
+      <img src="certificatte/python.png">
+      <h3>Python Certification</h3>
+      <p>Issued by udemy</p>
+      <a href="#">View Certificate</a>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="cert-card">
+      <img src="cert4.jpg">
+      <h3>Python Certification</h3>
+      <p>Issued by Coursera</p>
+      <a href="#">View Certificate</a>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
